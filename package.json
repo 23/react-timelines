@@ -2,7 +2,7 @@
   "name": "react-timelines",
   "version": "2.6.1",
   "description": "React Timelines",
-  "main": "ligb/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib coverage",
     "build:js": "babel src/ -d lib/",
