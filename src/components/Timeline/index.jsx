@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Header from './Header'
 import Body from './Body'
 import NowMarker from './Marker/Now'
+import Marker from './Marker'
 import PointerMarker from './Marker/Pointer'
 import getMouseX from '../../utils/getMouseX'
 import getGrid from '../../utils/getGrid'
@@ -42,6 +43,7 @@ class Timeline extends Component {
     return (
       <div className="rt-timeline" style={{ width: time.timelineWidthStyle }}>
         {now && <NowMarker now={now} visible time={time} />}
+        {markers && markers.map(marker => <Marker {...marker} />)}
         {pointerDate && (
           <PointerMarker date={pointerDate} time={time} visible={pointerVisible} highlighted={pointerHighlighted} />
         )}
@@ -62,6 +64,15 @@ class Timeline extends Component {
 
 Timeline.propTypes = {
   now: PropTypes.instanceOf(Date),
+  markers: PropTypes.arrayOf(
+    PropTypes.shape({
+      x: PropTypes.number.isRequired,
+      modifier: PropTypes.string.isRequired,
+      visible: PropTypes.bool,
+      highlighted: PropTypes.bool,
+      content: PropTypes.node,
+    })
+  ),
   time: PropTypes.shape({
     fromX: PropTypes.func.isRequired,
     toStyleLeftAndWidth: PropTypes.func,
