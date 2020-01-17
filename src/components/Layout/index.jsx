@@ -202,11 +202,8 @@ Layout.propTypes = {
   pointerDateFormatter: PropTypes.func,
   markers: PropTypes.arrayOf(
     PropTypes.shape({
-      x: PropTypes.number.isRequired,
-      modifier: PropTypes.string.isRequired,
-      visible: PropTypes.bool,
-      highlighted: PropTypes.bool,
       content: PropTypes.node,
+      date: PropTypes.date,
     })
   ),
 }
