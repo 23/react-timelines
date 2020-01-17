@@ -141,6 +141,8 @@ class Layout extends PureComponent {
       timelineViewportWidth,
       clickElement,
       clickTrackButton,
+      markers,
+      pointerDateFormatter,
     } = this.props
 
     const { isSticky, headerHeight, scrollLeft } = this.state
@@ -171,6 +173,8 @@ class Layout extends PureComponent {
                 scrollLeft,
               }}
               clickElement={clickElement}
+              pointerDateFormatter={pointerDateFormatter}
+              markers={markers}
             />
           </div>
         </div>
@@ -195,6 +199,16 @@ Layout.propTypes = {
   timelineViewportWidth: PropTypes.number,
   clickElement: PropTypes.func,
   clickTrackButton: PropTypes.func,
+  pointerDateFormatter: PropTypes.func,
+  markers: PropTypes.arrayOf(
+    PropTypes.shape({
+      x: PropTypes.number.isRequired,
+      modifier: PropTypes.string.isRequired,
+      visible: PropTypes.bool,
+      highlighted: PropTypes.bool,
+      content: PropTypes.node,
+    })
+  ),
 }
 
 export default Layout

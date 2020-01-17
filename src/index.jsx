@@ -62,6 +62,8 @@ class Timeline extends Component {
       toggleTrackOpen,
       enableSticky = false,
       scrollToNow,
+      markers,
+      pointerDateFormatter,
     } = this.props
 
     const { time, timelineViewportWidth, sidebarWidth } = this.state
@@ -93,6 +95,8 @@ class Timeline extends Component {
           sidebarWidth={sidebarWidth}
           clickElement={clickElement}
           clickTrackButton={clickTrackButton}
+          pointerDateFormatter={pointerDateFormatter}
+          markers={markers}
         />
       </div>
     )
@@ -120,6 +124,16 @@ Timeline.propTypes = {
   toggleTrackOpen: PropTypes.func,
   enableSticky: PropTypes.bool,
   scrollToNow: PropTypes.bool,
+  pointerDateFormatter: PropTypes.func,
+  markers: PropTypes.arrayOf(
+    PropTypes.shape({
+      x: PropTypes.number.isRequired,
+      modifier: PropTypes.string.isRequired,
+      visible: PropTypes.bool,
+      highlighted: PropTypes.bool,
+      content: PropTypes.node,
+    })
+  ),
 }
 
 export default Timeline
