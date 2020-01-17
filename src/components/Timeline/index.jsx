@@ -45,6 +45,7 @@ class Timeline extends Component {
         {markers &&
           markers.map(marker => (
             <PointerMarker
+              key={marker.date.getTime() / 1000}
               date={marker.date}
               time={time}
               visible

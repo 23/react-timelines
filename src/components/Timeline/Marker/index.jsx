@@ -6,9 +6,9 @@ const Marker = ({ x, modifier, children, visible, highlighted, style }) => (
     className={`rt-marker rt-marker--${modifier} ${visible ? 'rt-is-visible' : ''} ${
       highlighted ? 'rt-is-highlighted' : ''
     }`}
-    style={{ left: `${x}px`, ...style }}
+    style={{ left: `${x}px` }}
   >
-    <div className="rt-marker__label">
+    <div className="rt-marker__label" style={style}>
       <div className="rt-marker__content">{children}</div>
     </div>
   </div>
