@@ -34,7 +34,7 @@ class Timeline extends Component {
   }
 
   render() {
-    const { now, time, timebar, tracks, sticky, clickElement, markers } = this.props
+    const { now, time, timebar, tracks, sticky, clickElement, markers, pointerDateFormatter } = this.props
 
     const { pointerDate, pointerVisible, pointerHighlighted } = this.state
 
@@ -45,7 +45,13 @@ class Timeline extends Component {
         {now && <NowMarker now={now} visible time={time} />}
         {markers && markers.map(marker => <Marker {...marker} />)}
         {pointerDate && (
-          <PointerMarker date={pointerDate} time={time} visible={pointerVisible} highlighted={pointerHighlighted} />
+          <PointerMarker
+            date={pointerDate}
+            time={time}
+            visible={pointerVisible}
+            highlighted={pointerHighlighted}
+            dateFormatter={pointerDateFormatter}
+          />
         )}
         <Header
           time={time}
@@ -87,6 +93,7 @@ Timeline.propTypes = {
   tracks: PropTypes.arrayOf(PropTypes.shape({})),
   sticky: PropTypes.shape({}),
   clickElement: PropTypes.func,
+  pointerDateFormatter: PropTypes.func,
 }
 
 export default Timeline
