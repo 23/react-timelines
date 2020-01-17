@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Marker = ({ x, modifier, children, visible, highlighted }) => (
+const Marker = ({ x, modifier, children, visible, highlighted, style }) => (
   <div
     className={`rt-marker rt-marker--${modifier} ${visible ? 'rt-is-visible' : ''} ${
       highlighted ? 'rt-is-highlighted' : ''
     }`}
-    style={{ left: `${x}px` }}
+    style={{ left: `${x}px`, ...style }}
   >
     <div className="rt-marker__label">
       <div className="rt-marker__content">{children}</div>
@@ -20,6 +20,7 @@ Marker.propTypes = {
   visible: PropTypes.bool,
   highlighted: PropTypes.bool,
   children: PropTypes.node,
+  style: PropTypes.shape({}),
 }
 
 export default Marker

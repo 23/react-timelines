@@ -204,6 +204,7 @@ Layout.propTypes = {
     PropTypes.shape({
       content: PropTypes.node,
       date: PropTypes.date,
+      style: PropTypes.shape({}),
     })
   ),
 }

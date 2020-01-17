@@ -44,7 +44,14 @@ class Timeline extends Component {
         {now && <NowMarker now={now} visible time={time} />}
         {markers &&
           markers.map(marker => (
-            <PointerMarker date={marker.date} time={time} visible highlighted dateFormatter={() => marker.content} />
+            <PointerMarker
+              date={marker.date}
+              time={time}
+              visible
+              highlighted
+              dateFormatter={() => marker.content}
+              style={marker.style}
+            />
           ))}
         {pointerDate && (
           <PointerMarker
@@ -76,6 +83,7 @@ Timeline.propTypes = {
     PropTypes.shape({
       content: PropTypes.node,
       date: PropTypes.date,
+      style: PropTypes.shape({}),
     })
   ),
   time: PropTypes.shape({
