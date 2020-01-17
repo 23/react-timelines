@@ -34,7 +34,7 @@ class Timeline extends Component {
   }
 
   render() {
-    const { now, time, timebar, tracks, sticky, clickElement } = this.props
+    const { now, time, timebar, tracks, sticky, clickElement, markers } = this.props
 
     const { pointerDate, pointerVisible, pointerHighlighted } = this.state
 
