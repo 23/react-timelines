@@ -64,6 +64,7 @@ class Timeline extends Component {
       scrollToNow,
       markers,
       pointerDateFormatter,
+      onPointerMarkerChange,
     } = this.props
 
     const { time, timelineViewportWidth, sidebarWidth } = this.state
@@ -97,6 +98,7 @@ class Timeline extends Component {
           clickTrackButton={clickTrackButton}
           pointerDateFormatter={pointerDateFormatter}
           markers={markers}
+          onPointerMarkerChange={onPointerMarkerChange}
         />
       </div>
     )
@@ -132,6 +134,7 @@ Timeline.propTypes = {
       style: PropTypes.shape({}),
     })
   ),
+  onPointerMarkerChange: PropTypes.func,
 }
 
 export default Timeline

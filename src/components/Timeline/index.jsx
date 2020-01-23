@@ -20,8 +20,14 @@ class Timeline extends Component {
   }
 
   handleMouseMove = e => {
-    const { time } = this.props
-    this.setState({ pointerDate: time.fromX(getMouseX(e)) })
+    const { time, onPointerMarkerChange } = this.props
+    const pointerDate = time.fromX(getMouseX(e))
+
+    if (onPointerMarkerChange) {
+      onPointerMarkerChange(pointerDate)
+    }
+
+    this.setState({ pointerDate })
   }
 
   handleMouseLeave = () => {
@@ -102,6 +108,7 @@ Timeline.propTypes = {
   sticky: PropTypes.shape({}),
   clickElement: PropTypes.func,
   pointerDateFormatter: PropTypes.func,
+  onPointerMarkerChange: PropTypes.func,
 }
 
 export default Timeline

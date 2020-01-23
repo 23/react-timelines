@@ -143,6 +143,7 @@ class Layout extends PureComponent {
       clickTrackButton,
       markers,
       pointerDateFormatter,
+      onPointerMarkerChange,
     } = this.props
 
     const { isSticky, headerHeight, scrollLeft } = this.state
@@ -175,6 +176,7 @@ class Layout extends PureComponent {
               clickElement={clickElement}
               pointerDateFormatter={pointerDateFormatter}
               markers={markers}
+              onPointerMarkerChange={onPointerMarkerChange}
             />
           </div>
         </div>
@@ -207,6 +209,7 @@ Layout.propTypes = {
       style: PropTypes.shape({}),
     })
   ),
+  onPointerMarkerChange: PropTypes.func,
 }
 
 export default Layout
