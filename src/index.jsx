@@ -132,6 +132,7 @@ Timeline.propTypes = {
       content: PropTypes.node,
       date: PropTypes.date,
       style: PropTypes.shape({}),
+      id: PropTypes.string,
     })
   ),
   onPointerMarkerChange: PropTypes.func,

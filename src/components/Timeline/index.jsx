@@ -51,7 +51,7 @@ class Timeline extends Component {
         {markers &&
           markers.map(marker => (
             <PointerMarker
-              key={marker.date.getTime() / 1000}
+              key={marker.id}
               date={marker.date}
               time={time}
               visible
@@ -91,6 +91,7 @@ Timeline.propTypes = {
       content: PropTypes.node,
       date: PropTypes.date,
       style: PropTypes.shape({}),
+      id: PropTypes.string,
     })
   ),
   time: PropTypes.shape({
